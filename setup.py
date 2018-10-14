@@ -8,4 +8,5 @@ setup(name='vetrr',
       author_email='mattcwilde@gmail.com',
       license='MIT',
       packages=['vetrr'],
+      dependency_links=['https://github.com/linetools/linetools'],
       zip_safe=True)

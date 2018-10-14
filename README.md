@@ -13,3 +13,6 @@ Repo for CGM^2 (PI Werk)
 * future
 * PyYAML
 * linetools
+
+
+# TODO: Installation details ... 
