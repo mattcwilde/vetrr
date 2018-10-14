@@ -1,5 +1,5 @@
 # vetrr
-Repo for CGM^2 (PI Werk)
+vet the redshifts for the CGM^2 galaxy catalogue (PI J. Werk)
 
 # Requirements
 
@@ -15,4 +15,5 @@ Repo for CGM^2 (PI Werk)
 * linetools
 
 
-# TODO: Installation details ... 
+# TODO: Installation details ...
+I think it installs linetools when you pip install??? need to check this...
