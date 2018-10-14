@@ -1,1 +1,3 @@
-[]
+[
+  "vetrr/tests/test_vetrr_gui.py::test_xspecgui"
+]
