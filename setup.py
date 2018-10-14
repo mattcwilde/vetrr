@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='vetrr',
-      version='0.1',
+      version='0.1.2',
       description='vet redrock outputs',
       url='http://github.com/mattcwilde/vetrr',
       author='Matthew Wilde',
