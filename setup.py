@@ -9,4 +9,12 @@ setup(name='vetrr',
       license='MIT',
       packages=['vetrr'],
       dependency_links=['https://github.com/linetools/linetools'],
+      install_requires=[
+        'matplotlib',
+        'pyYAML',
+        'astropy',
+        'PyQt5',
+        'future',
+        'numpy'
+        ],
       zip_safe=True)
