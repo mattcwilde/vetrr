@@ -6,7 +6,7 @@
 
 
 """
-Run RedRock on spectra
+vet the RedRock guesses by examining spectra
 """
 
 import vetrr.scripts.vet_rr as vet_rr
