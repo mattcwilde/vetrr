@@ -9,7 +9,7 @@
 Run RedRock on spectra
 """
 
-import cgmsquared.scripts.vet_rr as vet_rr
+import vetrr.scripts.vet_rr as vet_rr
 if __name__ == '__main__':
     args = vet_rr.parser()
     vet_rr.main(args)
