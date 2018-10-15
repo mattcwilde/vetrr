@@ -14,11 +14,6 @@ vet the redshifts for the CGM^2 galaxy catalogue (PI J. Werk)
 * PyYAML
 * linetools
 
-
-# TODO: Installation details ...
-I think it installs linetools when you pip install??? need to check this...
-
-
 # How to run vetrr
 
 ### Example:
@@ -26,7 +21,7 @@ vetrr_vet_rr J1059_1441_m08_rr.fits test_vetted_rr.json --coadd_file=J1059+1441-
 
 vetrr_vet_rr is a script that will start the gui. It takes 3 arguments:
 * output from RedRock (fits file with rr in it)
-* vetted redshifts json folder. Lets use the convention JXXXX+XXXX_vetrr_<your initials>.json
+* vetted redshifts json folder. Lets use the convention JXXXX+XXXX_vetrr_your initials.json
 * coadd_file: JXXXXXXX-<mask_number>_coadd.yaml created by the redux software
 
 
