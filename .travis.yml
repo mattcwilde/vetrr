@@ -1,27 +1,10 @@
 language: python
 python:
-  - "3.6"
+  - "3"
+  - "2.7"
 # command to install dependencies
-env:
-    global:
-
-        # The following versions are the 'default' for tests, unless
-        # overridden underneath. They are defined here in order to save having
-        # to repeat them for all configurations.
-        - FOLDERNAME='vetrr'
-        - PYTHON_VERSION=3.6
-        - ASTROPY_VERSION=stable
-        - NUMPY_VERSION=stable
-        - MAIN_CMD='python setup.py'
-        - SETUP_CMD='test'
-        - CONDA_DEPENDENCIES='scipy h5py pyyaml matplotlib future numba'
-        - PIP_DEPENDENCIES=''
-        - EVENT_TYPE='pull_request push'
-        - TASK='test'
-    matrix:
-        - PYTHON_VERSION=3.6 SETUP_CMD='egg_info'
 install:
-  - $PIP_INSTALL git+https://github.com/linetools/linetools.git
+  - pip install git+https://github.com/linetools/linetools.git
 # command to run tests
 script:
   - pytest
