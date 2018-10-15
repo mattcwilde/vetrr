@@ -36,22 +36,22 @@ vetrr_vet_rr is a script that will start the gui. It takes 3 arguments:
 vetrr_vet_rr J0914_2823_m01_rr.fits J0914_2823_m01_vetrr_MW.json --coadd_file=J0914+2823-01_coadd.yaml
 
 
-# list of in GUI commands:
-& Toggle through ZQ
-% Set z=0 (for stars)
-9 Skip to next spectrum with ZQ=-99
-x Next spectrum
-S = smooth
-Y = decrease
-W = unzoom
-pressing 'b' = bottom where cursor
-pressing "_" goes to Halpha
+#### list of in GUI commands:
+* & Toggle through ZQ
+* % Set z=0 (for stars)
+* 9 Skip to next spectrum with ZQ=-99
+* x Next spectrum
+* S = smooth
+* Y = decrease
+* W = unzoom
+* pressing 'b' = bottom where cursor
+* pressing "_" goes to Halpha
 
-# Redshift quality of fit ZQ
-4=awesome
-3=single line but confident in the redshift
-2= Not an option
-1= I've identified a spectral feature but am not confident in the redshift
-0 = ok spectrum but nothing to key on
--1 = junk
--99 = un-vetted
+#### Redshift quality of fit ZQ
+* 4=awesome
+* 3=single line but confident in the redshift
+* 2= Not an option
+* 1= I've identified a spectral feature but am not confident in the redshift
+* 0 = ok spectrum but nothing to key on
+* -1 = junk
+* -99 = un-vetted
