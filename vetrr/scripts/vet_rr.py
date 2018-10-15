@@ -3,7 +3,8 @@
 """
 Script to run VetRedRockGui
 """
-from __future__ import (print_function, absolute_import, division, unicode_literals)
+from __future__ import print_function, absolute_import
+from __future__ import division, unicode_literals
 
 # import pdb
 
@@ -26,12 +27,12 @@ def parser(options=None):
 
     import argparse
 
-    parser = argparse.ArgumentParser(description='Run the VetRedRockGUI on RedRock output')
+    parser = argparse.ArgumentParser(description='Run the VetRedRockGUI on\
+                                     RedRock output')
     parser.add_argument("in_file", type=str, help="RedRock output FITS file")
     parser.add_argument("outfile", type=str, help="Output vetted .json file")
-    parser.add_argument("--coadd_file", type=str, help="YAML file for coadding;  will print xval to screen")
-    # parser.add_argument("-p", "--previous_file", type=str, help="Input Guesses .json file [previously generated]")
-    # parser.add_argument("--scale", type=float, help="Scaling of screen [default=1.]")
+    parser.add_argument("--coadd_file", type=str, help="YAML file for\
+                        coadding; will print xval to screen")
 
     if options is None:
         args = parser.parse_args()
@@ -50,11 +51,6 @@ def main(args=None):
     from collections import OrderedDict
     import yaml
 
-    #if pargs.scale is not None:
-    #    scale = pargs.scale
-    #else:
-    #    scale = 1.
-
     # Load outfile if it exists
     if os.path.isfile(pargs.outfile):
         print("******************************************************")
@@ -72,7 +68,8 @@ def main(args=None):
             coadd_dict = yaml.load(infile)
 
     app = QApplication(sys.argv)
-    gui = VetRedRockGui(pargs.in_file, outfile=pargs.outfile, zdict=zdict, coadd_dict=coadd_dict)
+    gui = VetRedRockGui(pargs.in_file, outfile=pargs.outfile,
+                        zdict=zdict, coadd_dict=coadd_dict)
     gui.show()
     app.exec_()
 
