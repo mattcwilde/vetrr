@@ -21,7 +21,7 @@ env:
     matrix:
         - PYTHON_VERSION=3.6 SETUP_CMD='egg_info'
 install:
-  - $PIP_INSTALL git+https://github.com/linetools/linetools.git; fi
+  - $PIP_INSTALL git+https://github.com/linetools/linetools.git
 # command to run tests
 script:
   - pytest
