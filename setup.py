@@ -27,7 +27,7 @@ setup(name='vetrr',
         'matplotlib',
         'pyYAML',
         'astropy',
-        'PyQt5',
+        'PyQT',
         'future',
         'numpy'
         ],
