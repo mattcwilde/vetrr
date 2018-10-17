@@ -29,7 +29,7 @@ install:
   - pip install coveralls
 # command to run tests
 script:
-    - pytest -v --cov corner
+    - pytest -v vetrr
 
 after_success:
     - coveralls
