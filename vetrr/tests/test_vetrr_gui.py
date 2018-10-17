@@ -3,14 +3,16 @@ from __future__ import division, unicode_literals
 
 # TEST_UNICODE_LITERALS
 
-# import pytest
+import pytest
 import os
-# import sys
+import sys
 # from pkg_resources import resource_filename
 
-# from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication
 from linetools.guis import xspecgui
 
+# QWidget: Must construct a QApplication before a QWidget
+app = QApplication(sys.argv)
 
 def data_path(filename):
     """Get the path to the data.
