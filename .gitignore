@@ -24,7 +24,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-.pytest_cache/
+.pytest_cache/*
 .pytest*
 
 # PyInstaller
