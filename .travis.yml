@@ -26,6 +26,10 @@ install:
   - python setup.py install
 
   - pip install git+https://github.com/linetools/linetools.git
+  - pip install coveralls
 # command to run tests
 script:
-  - pytest
+    - py.test -v --cov corner
+
+after_success:
+    - coveralls
