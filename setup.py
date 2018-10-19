@@ -14,7 +14,7 @@ def get_scripts():
 scripts = get_scripts()
 
 setup(name='vetrr',
-      version='0.1.5',
+      version='0.1.6',
       description='vet redrock outputs',
       url='http://github.com/mattcwilde/vetrr',
       author='Matthew Wilde',
