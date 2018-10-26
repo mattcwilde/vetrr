@@ -41,6 +41,10 @@ vetrr_vet_rr J0914_2823_m01_rr.fits J0914_2823_m01_vetrr_MW.json --coadd_file=J0
 * W = unzoom
 * pressing 'b' = bottom where cursor
 * pressing "_" goes to Halpha
+* pressing "*" goes to [OII] doublet
+* pressing "(" goes to CaII absorption
+* pressing ")" goes to [OIII] 5007 lines
+* press "[" and "]" to pan left or right
 
 #### Redshift quality of fit ZQ
 * 4=awesome
