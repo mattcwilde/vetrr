@@ -33,7 +33,7 @@ vetrr_vet_rr J0914_2823_m01_rr.fits J0914_2823_m01_vetrr_MW.json --coadd_file=J0
 
 #### list of in GUI commands:
 * & Toggle through ZQ
-* # Toggle through RedRock Guesses
+* '#' Toggle through RedRock Guesses
 * % Set z=0 (for stars)
 * 9 Skip to next spectrum with ZQ=-99
 * x Next spectrum
