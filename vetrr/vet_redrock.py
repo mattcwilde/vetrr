@@ -47,17 +47,11 @@ class VetRedRockGui(QMainWindow):
           Input RedRock output FITS file from our redrock script
         parent : Widget parent, optional
         zsys : float, optional
-          intial redshift
-        exten : int, optional
-          extension for the spectrum in multi-extension FITS file
-        norm : bool, optional
-          True if the spectrum is normalized
+          intial redshift either from a previous vet_rr json or the original
+          rr guesses
         screen_scale : float, optional
           Scale the default sizes for the gui size
         """
-        #reload(ltgl)
-        #reload(ltgsp)
-        # INIT
 
         # Load up
         self.outfile = outfile
@@ -302,8 +296,11 @@ class VetRedRockGui(QMainWindow):
         # Print slit info
         if self.slit_info is not None:
             print(self.slit_info[name])
-        # Set redshift from dict
-        self.pltline_widg.setz(str(self.zdict[name]['z']))
+
+        # Set redshift from dict and keep it short
+        zstr = str('{:.7f}'.format(self.zdict[name]['z']))
+        self.pltline_widg.setz(zstr)
+
         # Set ZQ
         self.ZQ_widg.set_text(self.zdict[name]['ZQ'])
         # Set Comment
