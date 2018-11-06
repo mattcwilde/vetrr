@@ -3,13 +3,15 @@ from setuptools import setup
 import os
 import glob
 
+
 def get_scripts():
     """ Grab all the scripts in the bin directory.  """
     scripts = []
     if os.path.isdir('bin'):
-        scripts = [ fname for fname in glob.glob(os.path.join('bin', '*'))
-                                if not os.path.basename(fname).endswith('.rst') ]
+        scripts = [fname for fname in glob.glob(os.path.join('bin', '*'))
+                   if not os.path.basename(fname).endswith('.rst')]
     return scripts
+
 
 scripts = get_scripts()
 
