@@ -1,3 +1,6 @@
+[![Coverage Status](https://coveralls.io/repos/github/mattcwilde/vetrr/badge.svg?branch=master)](https://coveralls.io/github/mattcwilde/vetrr?branch=master)
+
+
 # vetrr
 vet the redshifts for the CGM^2 galaxy catalogue (PI J. Werk)
 
