@@ -23,7 +23,7 @@ setup(name='vetrr',
       author_email='mattcwilde@gmail.com',
       license='MIT',
       # packages=['vetrr'],
-      packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+      packages=find_packages(exclude=['contrib']),  # Required
       scripts=scripts,
       dependency_links=['https://github.com/linetools/linetools'],
       install_requires=[
