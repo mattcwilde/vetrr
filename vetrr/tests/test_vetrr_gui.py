@@ -14,6 +14,7 @@ from linetools.guis import xspecgui
 # QWidget: Must construct a QApplication before a QWidget
 app = QApplication(sys.argv)
 
+
 def data_path(filename):
     """Get the path to the data.
 
