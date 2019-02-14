@@ -3,7 +3,6 @@
 from __future__ import print_function, absolute_import
 from __future__ import division, unicode_literals
 
-
 # import sys
 # import pdb
 
@@ -38,8 +37,14 @@ class VetRedRockGui(QMainWindow):
     """ GUI for vetting RedRock redshifts
     """
 
-    def __init__(self, redrock_file, parent=None, zdict=None, coadd_dict=None,
-                 outfile='tmp.json', unit_test=False, screen_scale=1.,
+    def __init__(self,
+                 redrock_file,
+                 parent=None,
+                 zdict=None,
+                 coadd_dict=None,
+                 outfile='tmp.json',
+                 unit_test=False,
+                 screen_scale=1.,
                  **kwargs):
         QMainWindow.__init__(self, parent)
         """
@@ -63,8 +68,10 @@ class VetRedRockGui(QMainWindow):
                     if '2D_xval' in coadd_dict[key].keys():
                         name = coadd_dict[key]['outfile'].replace('.fits', '')
                         self.slit_info[name] = {}
-                        self.slit_info[name]['xval'] = coadd_dict[key]['2D_xval']
-                        self.slit_info[name]['Gslit'] = coadd_dict[key]['Gemini_slit']
+                        self.slit_info[name]['xval'] = coadd_dict[key][
+                            '2D_xval']
+                        self.slit_info[name]['Gslit'] = coadd_dict[key][
+                            'Gemini_slit']
         else:
             self.slit_info = None
 
@@ -80,8 +87,9 @@ class VetRedRockGui(QMainWindow):
             # Grab the spectrum
             spec_file = hdu.name
             # tmp = XSpectrum1D.from_file(spec_file.replace('FITS','fits'))
-            spectra.append(XSpectrum1D.from_file(
-                spec_file.replace('FITS', 'fits'), masking='edges'))
+            spectra.append(
+                XSpectrum1D.from_file(
+                    spec_file.replace('FITS', 'fits'), masking='edges'))
             names.append(spec_file.replace('.FITS', ''))
             # RedRock
             data = hdu.data
@@ -98,7 +106,7 @@ class VetRedRockGui(QMainWindow):
         ispec = lspu.collate(spectra, masking='edges')
         # Fill
         ispec.labels = names
-        ispec.stypes = ['galaxy']*ispec.nspec
+        ispec.stypes = ['galaxy'] * ispec.nspec
         # ispec.z = zs  # DO NOT SET THE REDSHIFT HERE
 
         self.RRi = 0
@@ -123,22 +131,27 @@ class VetRedRockGui(QMainWindow):
         self.comment_widg = ltgsm.EditBox('', 'Comment', '{:s}')
 
         # Grab the pieces and tie together
-        self.pltline_widg = ltgl.PlotLinesWidget(status=self.statusBar,
-                                                 screen_scale=self.scale)
-        self.pltline_widg.setMaximumWidth(300*self.scale)
+        self.pltline_widg = ltgl.PlotLinesWidget(
+            status=self.statusBar, screen_scale=self.scale)
+        self.pltline_widg.setMaximumWidth(300 * self.scale)
 
         # Hook the spec widget to Plot Line
-        self.spec_widg = ltgsp.ExamineSpecWidget(ispec, status=self.statusBar,
-                                                 parent=self, llist=self.pltline_widg.llist,
-                                                 screen_scale=self.scale,
-                                                 **kwargs)
+        self.spec_widg = ltgsp.ExamineSpecWidget(
+            ispec,
+            status=self.statusBar,
+            parent=self,
+            llist=self.pltline_widg.llist,
+            screen_scale=self.scale,
+            **kwargs)
         # Reset redshift from spec
         # Auto set line list if spec has proper object type
         if hasattr(self.spec_widg.spec, 'stypes'):
-            if self.spec_widg.spec.stypes[self.spec_widg.select].lower() == 'galaxy':
+            if self.spec_widg.spec.stypes[self.spec_widg.
+                                          select].lower() == 'galaxy':
                 self.pltline_widg.llist = ltgu.set_llist(
                     'Galaxy', in_dict=self.pltline_widg.llist)
-            elif self.spec_widg.spec.stypes[self.spec_widg.select].lower() == 'absorber':
+            elif self.spec_widg.spec.stypes[self.spec_widg.
+                                            select].lower() == 'absorber':
                 self.pltline_widg.llist = ltgu.set_llist(
                     'Strong', in_dict=self.pltline_widg.llist)
             self.pltline_widg.llist['Plot'] = True
@@ -161,7 +174,8 @@ class VetRedRockGui(QMainWindow):
         self.wv_dict = {'*': 3727., '(': 3950., ')': 4940., '_': 6564.}
         self.legend['zoom'] = self.wv_dict
         self.legend['&'] = 'Toggle through ZQ'
-        self.legend['#'] = 'Toggle through zRR (WARNING: will not necessary start at the first one)'
+        self.legend[
+            '#'] = 'Toggle through zRR (WARNING: will not necessary start at the first one)'
         self.legend['%'] = 'Set z=0 (for stars)'
         self.legend['9'] = 'Skip to next spectrum with ZQ=-99'
         self.legend['x'] = 'Next spectrum'
@@ -170,8 +184,8 @@ class VetRedRockGui(QMainWindow):
 
         # Extras
         extras = QWidget()
-        extras.setMinimumWidth(180*self.scale)
-        extras.setMaximumWidth(280*self.scale)
+        extras.setMinimumWidth(180 * self.scale)
+        extras.setMaximumWidth(280 * self.scale)
         vbox = QVBoxLayout()
         qbtn = QPushButton(self)
         qbtn.setText('Quit')
@@ -214,15 +228,15 @@ class VetRedRockGui(QMainWindow):
             ZQ = int(self.ZQ_widg.value)
             idx = self.ZQ_values.index(ZQ)
             if self.ZQ_values[idx] == self.ZQ_values[0]:
-                new_idx = len(self.ZQ_values)-1
+                new_idx = len(self.ZQ_values) - 1
             else:
-                new_idx = idx-1
+                new_idx = idx - 1
             # Set
             self.ZQ_widg.setv(str(self.ZQ_values[new_idx]))
         if event.key in self.wv_dict.keys():
             # Zoom in on a feature
-            z_wv = (1+z)*self.wv_dict[event.key]
-            self.spec_widg.psdict['x_minmax'] = [z_wv-110., z_wv+110.]
+            z_wv = (1 + z) * self.wv_dict[event.key]
+            self.spec_widg.psdict['x_minmax'] = [z_wv - 110., z_wv + 110.]
             self.spec_widg.on_draw()
 
         if event.key == '%':  # Next one
@@ -238,7 +252,7 @@ class VetRedRockGui(QMainWindow):
 
         # Jumping around
         if event.key == 'x':  # Next one
-            idx = min(self.spec_widg.select + 1, len(self.zdict)-1)
+            idx = min(self.spec_widg.select + 1, len(self.zdict) - 1)
             self.mspec_widg.mspec_widget.setCurrentRow(idx)
         if event.key == '9':  # Next -99 case
             #QtCore.pyqtRemoveInputHook()
@@ -272,15 +286,17 @@ class VetRedRockGui(QMainWindow):
             #QtCore.pyqtRemoveInputHook()
             #pdb.set_trace()
             #QtCore.pyqtRestoreInputHook()
-            wrest = Quantity(float(spltw[0]), unit=self.pltline_widg.llist[
-                self.pltline_widg.llist['List']]._data['wrest'].unit)  # spltw[1])  [A bit risky!]
-            z = event.xdata/wrest.value - 1.
+            wrest = Quantity(
+                float(spltw[0]),
+                unit=self.pltline_widg.llist[self.pltline_widg.llist['List']].
+                _data['wrest'].unit)  # spltw[1])  [A bit risky!]
+            z = event.xdata / wrest.value - 1.
             self.pltline_widg.llist['z'] = z
             print("z={:.5f}".format(z))
             self.statusBar().showMessage('z = {:f}'.format(z))
 
-            self.pltline_widg.zbox.setText(
-                '{:.5f}'.format(self.pltline_widg.llist['z']))
+            self.pltline_widg.zbox.setText('{:.5f}'.format(
+                self.pltline_widg.llist['z']))
 
             # Draw
             self.spec_widg.on_draw()

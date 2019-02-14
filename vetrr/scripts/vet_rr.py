@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 Script to run VetRedRockGui
 """
@@ -31,7 +30,10 @@ def parser(options=None):
                                      RedRock output')
     parser.add_argument("in_file", type=str, help="RedRock output FITS file")
     parser.add_argument("outfile", type=str, help="Output vetted .json file")
-    parser.add_argument("--coadd_file", type=str, help="YAML file for\
+    parser.add_argument(
+        "--coadd_file",
+        type=str,
+        help="YAML file for\
                         coadding; will print xval to screen")
 
     if options is None:
@@ -68,8 +70,11 @@ def main(args=None):
             coadd_dict = yaml.load(infile)
 
     app = QApplication(sys.argv)
-    gui = VetRedRockGui(pargs.in_file, outfile=pargs.outfile,
-                        zdict=zdict, coadd_dict=coadd_dict)
+    gui = VetRedRockGui(
+        pargs.in_file,
+        outfile=pargs.outfile,
+        zdict=zdict,
+        coadd_dict=coadd_dict)
     gui.show()
     app.exec_()
 
