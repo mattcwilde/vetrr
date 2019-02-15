@@ -32,16 +32,10 @@ vetrr_vet_rr J0914_2823_m01_rr.fits J0914_2823_m01_vetrr_MW.json --coadd_file=J0
 
 # use 'auto_vet_rr' instead
  * `auto_vet_rr`
-
  * or to create a new output with your initials
-
-`auto_vet_rr -i <your initials>`
-
+    - `auto_vet_rr -i=<your initials>`
 * or
-
-`auto_vet_rr --initials=MW`
-
-whew MW are your initials
+    - `auto_vet_rr --initials=MW` where `MW` are your initials
 
 
 #### list of in GUI commands:
