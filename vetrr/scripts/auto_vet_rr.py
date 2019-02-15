@@ -83,18 +83,13 @@ def main(args=None):
         if initials is not None:
             outfile = infile[:-7] + "vetrr_" + initials + ".json"
         else:
-            print("need an outfile and initials")
-            import pdb
-            pdb.set_trace()
+            print("ERROR: No existing output. Need an outfile and initials")
+            outfile = None
     elif initials is not None:
         print("Createing a new output file")
         outfile = infile[:-7] + "vetrr_" + initials + ".json"
     else:
         outfile = outguess[0]
-
-    print(outfile, initials)
-    import pdb
-    pdb.set_trace()
 
     print("******************************************************")
     print("Auto found these files:")
