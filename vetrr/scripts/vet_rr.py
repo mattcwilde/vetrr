@@ -35,7 +35,7 @@ def parser(options=None):
         type=str,
         help="YAML file for\
                         coadding; will print xval to screen")
-
+    parser.add_argument("--auto", type=str, help="auto glob the in/out files")
     if options is None:
         args = parser.parse_args()
     else:
