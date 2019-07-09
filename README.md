@@ -30,7 +30,7 @@ vetrr_vet_rr is a script that will start the gui. It takes 3 arguments:
 # vet red rock using the gui
 vetrr_vet_rr J0914_2823_m01_rr.fits J0914_2823_m01_vetrr_MW.json --coadd_file=J0914+2823-01_coadd.yaml
 
-# use 'auto_vet_rr' instead
+# use 'vetrr_auto' instead
  * `vetrr_auto`
  * or to create a new output with your initials
     - `vetrr_auto -i=<your initials>`
